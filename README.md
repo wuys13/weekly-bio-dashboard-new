@@ -2,6 +2,15 @@
 
 A Streamlit dashboard that automatically fetches, scores, and curates recent papers from top biology journals and preprints (bioRxiv / medRxiv).
 
+## 🏗️ How It Works
+
+**Want to understand the complete technical architecture?** See [**TECHNICAL_ARCHITECTURE.md**](TECHNICAL_ARCHITECTURE.md) for a detailed explanation of:
+- **Data fetching**: How we get papers from Crossref, bioRxiv, and medRxiv APIs
+- **Smart scoring**: Multi-dimensional keyword matching and weighted evaluation
+- **Visualization**: How Streamlit renders everything into an interactive web dashboard
+
+**TL;DR**: Public APIs → keyword matching + multi-dimensional scoring → interactive web dashboard
+
 ## Features
 
 - Fetches from **20+ journals** via Crossref API + bioRxiv/medRxiv API (no API key needed)

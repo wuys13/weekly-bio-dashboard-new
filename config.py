@@ -94,8 +94,8 @@ MAX_PER_JOURNAL_MUST_READ = 3
 # Papers tagged with a TECH key go into the "Must-read Tech" list;
 # papers tagged with a BIO key go into "Must-read Bio".
 # A paper can appear in both if it hits keywords from both sides.
-TECH_KEYS = ["genomics", "sequencing", "imaging", "proteomics", "computational"]
-BIO_KEYS  = ["cell_biology", "development", "neuroscience", "cancer", "therapeutics"]
+TECH_KEYS = ["genomics", "sequencing", "imaging", "proteomics", "computational", "spatial_transcriptomics", "ai_ml", "single_cell"]
+BIO_KEYS  = ["cell_biology", "development", "neuroscience", "cancer", "therapeutics", "tumor_microenvironment"]
 
 
 # ========================
@@ -263,67 +263,134 @@ CORE_KEYWORDS = {
         "drug resistance",
         "combination therapy",
     ],
+
+    # --- Custom additions for spatial transcriptomics focus ---
+    "spatial_transcriptomics": [
+        "spatial transcriptomics",
+        "spatial transcriptomic",
+        "visium",
+        "merfish",
+        "seqfish",
+        "osmfish",
+        "in situ sequencing",
+        "spatial rna",
+        "slide-seq",
+        "stereo-seq",
+        "imaging-based transcriptomics",
+        "tissue map",
+        "spatial resolution",
+        "spatial gene expression",
+    ],
+
+    # --- Custom additions for AI/ML ---
+    "ai_ml": [
+        "machine learning",
+        "deep learning",
+        "neural network",
+        "artificial intelligence",
+        "transformer",
+        "foundation model",
+        "large language model",
+        "llm",
+        "attention mechanism",
+        "prediction",
+        "classification",
+        "representation learning",
+        "self-supervised",
+        "contrastive learning",
+        "generative model",
+    ],
+
+    # --- Custom additions for tumor microenvironment ---
+    "tumor_microenvironment": [
+        "tumor microenvironment",
+        "tme",
+        "immune infiltration",
+        "immune cell",
+        "t cell",
+        "macrophage",
+        "fibroblast",
+        "cancer-associated fibroblast",
+        "cab",
+        "immune checkpoint",
+        "immunosuppression",
+        "exhaustion",
+        "infiltrating lymphocyte",
+        "stromal",
+        "immune evasion",
+    ],
+
+    # --- Custom additions for single-cell analysis ---
+    "single_cell": [
+        "single-cell",
+        "single cell",
+        "scRNA-seq",
+        "scrna",
+        "single-cell transcriptome",
+        "cell-level resolution",
+        "cell type",
+        "state transition",
+        "pseudotime",
+        "trajectory",
+        "cell state",
+        "cell annotation",
+    ],
 }
 
 
 # ========================
-# Focus 1: Gene regulation & epigenetics  (example — replace with your niche)
+# Focus 1: Spatial Transcriptomics in Tumor Microenvironment
 # ========================
-# This list powers a dedicated Focus section in the dashboard.
-# Add terms specific to your first focus area.
+# Spatial analysis of tumor immune infiltration and stromal composition
 FOCUS_AREA_1_KEYS = [
-    "gene regulation",
-    "transcription factor",
-    "enhancer",
-    "promoter",
-    "chromatin remodeling",
-    "histone modification",
-    "histone acetylation",
-    "histone methylation",
-    "dna methylation",
-    "epigenetic",
-    "epigenetics",
-    "epigenome",
-    "non-coding rna",
-    "lncrna",
-    "mirna",
-    "chromatin accessibility",
-    "3d genome",
-    "topologically associating domain",
-    "tad",
-    "super-enhancer",
-    "gene silencing",
-    "polycomb",
-    "trithorax",
+    "spatial transcriptomics",
+    "visium",
+    "merfish",
+    "seqfish",
+    "stereo-seq",
+    "slide-seq",
+    "in situ sequencing",
+    "tumor microenvironment",
+    "immune infiltration",
+    "immune cell",
+    "t cell",
+    "macrophage",
+    "fibroblast",
+    "cancer-associated fibroblast",
+    "stromal",
+    "tumor",
+    "cancer",
+    "tissue",
+    "spatial resolution",
+    "immune landscape",
 ]
 
 
 # ========================
-# Focus 2: Stem cells & regenerative medicine  (example — replace with your niche)
+# Focus 2: AI/ML for Transcriptomics
 # ========================
+# Machine learning applications in single-cell and spatial transcriptomics
 FOCUS_AREA_2_KEYS = [
-    "stem cell",
-    "stem cells",
-    "pluripotent",
-    "ipsc",
-    "induced pluripotent",
-    "embryonic stem cell",
-    "adult stem cell",
-    "hematopoietic stem cell",
-    "mesenchymal stem cell",
-    "organoid",
-    "organoids",
-    "regeneration",
-    "regenerative medicine",
-    "tissue engineering",
-    "cell therapy",
-    "cell transplantation",
-    "reprogramming",
-    "self-renewal",
-    "niche",
-    "stem cell niche",
-    "differentiation",
-    "lineage tracing",
+    "machine learning",
+    "deep learning",
+    "artificial intelligence",
+    "neural network",
+    "transformer",
+    "foundation model",
+    "prediction",
+    "classification",
+    "single-cell",
+    "scRNA-seq",
+    "transcriptomics",
+    "gene expression",
+    "cell type",
+    "cell annotation",
+    "clustering",
+    "dimensionality reduction",
+    "trajectory inference",
+    "pseudotime",
+    "representation learning",
+    "self-supervised",
 ]
 
 
@@ -388,28 +455,34 @@ BIG_DEAL_HINTS = [
 #
 # >>> CUSTOMIZE THESE to reflect the trends you care about <<<
 TREND_LEXICON = {
-    "Gene regulation & chromatin": [
-        "gene regulation",
-        "transcription factor",
-        "enhancer",
-        "chromatin",
-        "epigenetic",
-        "histone",
+    "Spatial Transcriptomics": [
+        "spatial transcriptomics",
+        "visium",
+        "merfish",
+        "seqfish",
+        "stereo-seq",
+        "slide-seq",
+        "in situ sequencing",
+        "spatial resolution",
     ],
     "Single-cell & spatial omics": [
         "single-cell",
         "single cell",
+        "scRNA-seq",
         "spatial transcriptomics",
         "spatial proteomics",
         "multiome",
         "cell atlas",
     ],
-    "Stem cells & organoids": [
-        "stem cell",
-        "organoid",
-        "regeneration",
-        "reprogramming",
-        "pluripotent",
+    "Tumor Microenvironment & Immunology": [
+        "tumor microenvironment",
+        "immune infiltration",
+        "immune cell",
+        "macrophage",
+        "t cell",
+        "immunotherapy",
+        "immune checkpoint",
+        "immune evasion",
     ],
     "Cancer biology & therapy": [
         "cancer",
@@ -437,5 +510,7 @@ TREND_LEXICON = {
         "computational pathology",
         "spatial deconvolution",
         "automated annotation",
+        "cell type annotation",
+        "trajectory inference",
     ],
 }

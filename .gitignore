@@ -1,18 +1,69 @@
-# Python
-__pycache__/
-*.pyc
+# Environment & Virtual Environment
 .venv/
-
-# macOS
-.DS_Store
-
-# Claude Code
-.claude/
-
-# Secrets — NEVER commit this
+venv/
+env/
+ENV/
+.env
 .env.digest
+.env.local
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
 
-# Runtime artifacts
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.config.py.swp
+
+# Logs & Temporary Files
+logs/
 *.log
-digest_preview.html
+streamlit.log
+*.tmp
+
+# Streamlit Cache
+.streamlit/cache/
+.streamlit/secrets.toml
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Saved Papers / Bookmarks
 saved_papers.json
+digest_preview.html
+
+# Optional: Large Data Files
+# data/
+# cache/
+
+# IDE generated files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Package Management
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Credentials & Secrets (IMPORTANT!)
+.env*
+!.env.example
+secrets/
+credentials/
+*.key
+*.pem
+
+# User-specific files
+*.sublime-project
+*.sublime-workspace
