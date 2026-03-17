@@ -29,50 +29,44 @@
 # Add or remove journals here. Each entry must match the journal name as it
 # appears in Crossref. Use JOURNAL_ISSN below to map ambiguous names to ISSNs.
 JOURNALS = [
-    # Nature & Science families (reliably indexed in Crossref)
+    "Cell",
     "Nature",
     "Science",
+    "Cancer Cell",
     "Nature Biotechnology",
     "Nature Methods",
+    "Immunity",
+    "Nature Immunology",
+    "Science Advances",
+    "Science Immunology",
     "Science Translational Medicine",
     "Nature Cancer",
     "Nature Genetics",
     "Nature Medicine",
     "Nature Biomedical Engineering",
-    "Nature Chemical Biology",
-    "Nature Communications",
-
-    # Cell Press journals
     "Cell Systems",
     "Cell Reports Methods",
-
-    # Other high-impact
     "PNAS",
+    "Nature Chemical Biology",
+    "Nature Communications",
     "eLife",
-
-    # NOTE: These journals are NOT reliably indexed in Crossref:
-    # - "Cell", "Cancer Cell", "Immunity", "Nature Immunology",
-    #   "Science Advances", "Science Immunology"
-    # They return 0 results even with correct ISSNs. Use bioRxiv/medRxiv instead
-    # for preprints from these journals.
 ]
 INCLUDE_BIORXIV_DEFAULT = True
 INCLUDE_MEDRXIV_DEFAULT = False
 
 # ISSN look-up speeds up Crossref queries and avoids false matches.
 # Find ISSNs at https://portal.issn.org
-#
-# NOTE: Some top-tier journals (Cell, Cancer Cell, Nature Immunology, Immunity,
-# Science Immunology) are NOT reliably indexed in Crossref with correct metadata/ISSNs.
-# These are removed from JOURNAL_ISSN to prevent returning 0 results.
-# Use bioRxiv/medRxiv preprints instead for papers from these journals, or add
-# journal-specific API integrations in the future.
 JOURNAL_ISSN = {
-    # ✓ Reliably indexed in Crossref
+    "Cell": ['0092-8674', '1097-4172'],
     "Nature": ['0028-0836', '1476-4687'],
     "Science": ['0036-8075', '1095-9203'],
+    "Cancer Cell": ['1535-6108', '1878-3686'],
     "Nature Biotechnology": ['1087-0156', '1546-1696'],
     "Nature Methods": ['1548-7091', '1548-7105'],
+    "Immunity": ['1074-7613', '1097-4180'],
+    "Nature Immunology": ['1529-2908', '1529-2916'],
+    "Science Advances": ['2375-2548'],
+    "Science Immunology": ['2470-9468'],
     "Science Translational Medicine": ['1946-6234'],
     "Nature Cancer": ['2662-1347'],
     "Nature Genetics": ['1061-4036', '1546-1718'],
@@ -84,14 +78,6 @@ JOURNAL_ISSN = {
     "Nature Chemical Biology": ['1552-4450', '1552-4469'],
     "Nature Communications": ['2041-1723'],
     "eLife": ['2050-084X'],
-
-    # ✗ NOT reliably indexed (removed to avoid 0 results):
-    # "Cell": ['0092-8674', '1097-4172'],
-    # "Cancer Cell": ['1535-6108', '1878-3686'],
-    # "Immunity": ['1074-7613', '1097-4180'],
-    # "Nature Immunology": ['1529-2908', '1529-2916'],
-    # "Science Advances": ['2375-2548'],
-    # "Science Immunology": ['2470-9468'],
 }
 
 # Must-read list size

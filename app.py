@@ -287,17 +287,27 @@ def refresh(
     for j in JOURNALS:
         items, status = crossref_fetch(j, days=journal_days, rows=max_rows_per_journal)
         all_items.extend(items)
-        fetch_status[j] = {"count": len(items), "status": status}
+        detail = status
+        # If no papers found but API succeeded, add explanatory note
+        if len(items) == 0 and status == "ok":
+            detail = "ok (no recent publications in index)"
+        fetch_status[j] = {"count": len(items), "status": status, "detail": detail}
 
     if include_biorxiv:
         items, status = biorxiv_fetch(days=preprint_days)
         all_items.extend(items)
-        fetch_status["bioRxiv"] = {"count": len(items), "status": status}
+        detail = status
+        if len(items) == 0 and status == "ok":
+            detail = "ok (no recent preprints in index)"
+        fetch_status["bioRxiv"] = {"count": len(items), "status": status, "detail": detail}
 
     if include_medrxiv:
         items, status = medrxiv_fetch(days=preprint_days)
         all_items.extend(items)
-        fetch_status["medRxiv"] = {"count": len(items), "status": status}
+        detail = status
+        if len(items) == 0 and status == "ok":
+            detail = "ok (no recent preprints in index)"
+        fetch_status["medRxiv"] = {"count": len(items), "status": status, "detail": detail}
 
     df = pd.DataFrame(all_items)
 
@@ -392,8 +402,14 @@ st.caption(f"Data last refreshed: **{refresh_ts}** | {len(df)} papers total afte
 with st.expander("Fetch status per source", expanded=False):
     status_rows = []
     for src, info in fetch_status.items():
-        emoji = "OK" if info["status"] == "ok" else "WARN"
-        status_rows.append({"Source": src, "Papers": info["count"], "Status": emoji, "Detail": info["status"]})
+        emoji = "✓" if info["status"] == "ok" else "⚠"
+        detail_msg = info.get("detail", info["status"])
+        status_rows.append({
+            "Source": src,
+            "Papers": info["count"],
+            "Status": emoji,
+            "Detail": detail_msg
+        })
     if status_rows:
         st.dataframe(pd.DataFrame(status_rows), use_container_width=True)
 
