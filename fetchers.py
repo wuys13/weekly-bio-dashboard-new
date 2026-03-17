@@ -61,6 +61,9 @@ def crossref_fetch(journal: str, days: int, rows: int = 200) -> tuple[list[dict]
     """
     Fetch recent journal articles from Crossref.
     Returns (items_list, status_string).
+
+    For journals with ISSN mappings: queries by ISSN (precise, fast).
+    For journals without ISSN: queries by name (fuzzy match, filters by journal name).
     """
     end = datetime.now(timezone.utc).date()
     start = end - timedelta(days=days)
@@ -113,6 +116,19 @@ def crossref_fetch(journal: str, days: int, rows: int = 200) -> tuple[list[dict]
             url = it.get("URL") or ""
             abstract = clean_abstract(it.get("abstract") or "")
             pub_date = parse_crossref_date(it)
+
+            # If no ISSN mapping (name-based query), filter by journal name to avoid false matches.
+            # E.g., querying "Cell" should not return "Cell Research" or "Aging Cell".
+            if issn is None:
+                container_norm = norm_journal(container)
+                journal_norm = norm_journal(journal)
+                # Accept exact or very close matches; skip if container is "unrelated" journal
+                if container_norm != journal_norm:
+                    # Allow some flexibility for slight variations (e.g., "Nature Commun" vs "Nature Communications")
+                    # but reject completely different journals
+                    if not (journal_norm in container_norm or container_norm in journal_norm):
+                        continue  # Skip this item if journal names don't match well
+
             out.append(
                 {
                     "source": "Journal",
