@@ -4,12 +4,25 @@ A Streamlit dashboard that automatically fetches, scores, and curates recent pap
 
 ## 🏗️ How It Works
 
-**Want to understand the complete technical architecture?** See [**TECHNICAL_ARCHITECTURE.md**](TECHNICAL_ARCHITECTURE.md) for a detailed explanation of:
+**Want to understand the complete technical architecture?** See [**TECHNICAL_ARCHITECTURE.md**](docs/TECHNICAL_ARCHITECTURE.md) for a detailed explanation of:
 - **Data fetching**: How we get papers from Crossref, bioRxiv, and medRxiv APIs
 - **Smart scoring**: Multi-dimensional keyword matching and weighted evaluation
 - **Visualization**: How Streamlit renders everything into an interactive web dashboard
 
 **TL;DR**: Public APIs → keyword matching + multi-dimensional scoring → interactive web dashboard
+
+---
+
+## 📚 Documentation
+
+| Document | Purpose |
+|----------|---------|
+| [**TECHNICAL_ARCHITECTURE.md**](docs/TECHNICAL_ARCHITECTURE.md) | How the system works internally (APIs, scoring, visualization) |
+| [**SOP_WORKFLOW_PRINCIPLES.md**](docs/SOP_WORKFLOW_PRINCIPLES.md) | Best practices & workflow principles for building similar projects |
+| [**START_HERE.md**](docs/START_HERE.md) | Quick setup guide |
+| [**SETUP_COMPLETE.md**](docs/SETUP_COMPLETE.md) | Detailed setup with statistics |
+
+---
 
 ## Features
 
